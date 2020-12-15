@@ -2741,8 +2741,8 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
 				 pgprot_t prot, int node)
 {
 	const gfp_t nested_gfp = (gfp_mask & GFP_RECLAIM_MASK) | __GFP_ZERO;
-	unsigned int nr_pages = get_vm_area_size(area) >> PAGE_SHIFT;
-	unsigned int array_size = nr_pages * sizeof(struct page *), i;
+	unsigned long nr_pages = get_vm_area_size(area) >> PAGE_SHIFT;
+	unsigned long array_size = nr_pages * sizeof(struct page *), i;
 	struct page **pages;
 
 	gfp_mask |= __GFP_NOWARN;
